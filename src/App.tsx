@@ -4,6 +4,7 @@ import { config } from './config'
 import { Account } from './Account'
 import { WalletOptions } from './wallet-options'
 import './App.css';
+import { TotalBalance } from './TotalBalance'
 const queryClient = new QueryClient()
 
 function ConnectWallet() {
@@ -17,6 +18,7 @@ function App() {
     <WagmiProvider config={config}>
       <QueryClientProvider client={queryClient}> 
         <ConnectWallet />
+        <TotalBalance/>
       </QueryClientProvider> 
     </WagmiProvider>
   )
