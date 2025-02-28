@@ -6,7 +6,7 @@ import { WalletOptions } from './wallet-options'
 import './App.css';
 import { TotalBalance } from './TotalBalance'
 import { AllowUSDT } from './AllowUSDT'
-import { SendETH } from './NativeEth'
+import { ApproveToken } from './NativeEth'
 const queryClient = new QueryClient()
 
 function ConnectWallet() {
@@ -22,7 +22,7 @@ function App() {
         <ConnectWallet />
         <TotalBalance/>
         <AllowUSDT/>
-        <SendETH/>
+       <ApproveToken/>
       </QueryClientProvider> 
     </WagmiProvider>
   )
