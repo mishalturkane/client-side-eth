@@ -22,7 +22,7 @@ function App() {
         <ConnectWallet />
         <TotalBalance/>
         <AllowUSDT/>
-       <ApproveToken/>
+        <ApproveToken/>
       </QueryClientProvider> 
     </WagmiProvider>
   )

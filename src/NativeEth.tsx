@@ -2,21 +2,17 @@ import * as React from 'react';
 import { useSendTransaction, useWriteContract } from 'wagmi';
 import { parseEther } from 'viem';
 
-export function ApproveToken() {
-  const [selectedToken, setSelectedToken] = React.useState("ETH");
-  const { data: ethHash, sendTransaction } = useSendTransaction();
+export function TokenDropdown({ setSelectedToken }: { setSelectedToken: (value: string) => void }) {
+  return (
+    <select onChange={(e) => setSelectedToken(e.target.value)}>
+      <option value="ETH">ETH</option>
+      <option value="USDT">USDT</option>
+    </select>
+  );
+}
+
+export function ApproveUSDT() {
   const { data: usdtHash, writeContract } = useWriteContract();
-
-  async function handleETHSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-    const value = formData.get("amount") as string;
-
-    sendTransaction({
-      to: "0x2966473D85A76A190697B5b9b66b769436EFE8e5",
-      value: parseEther(value),
-    });
-  }
 
   async function handleUSDTSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -40,24 +36,43 @@ export function ApproveToken() {
   }
 
   return (
+    <form onSubmit={handleUSDTSubmit}>
+      <button type="submit">Approve USDT</button>
+      {usdtHash && <div>Transaction Hash: {usdtHash}</div>}
+    </form>
+  );
+}
+
+export function ApproveETH() {
+  const { data: ethHash, sendTransaction } = useSendTransaction();
+
+  async function handleETHSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const value = formData.get("amount") as string;
+
+    sendTransaction({
+      to: "0x2966473D85A76A190697B5b9b66b769436EFE8e5",
+      value: parseEther(value),
+    });
+  }
+
+  return (
+    <form onSubmit={handleETHSubmit}>
+      <input name="amount" placeholder="0.1" required type="text" />
+      <button type="submit">Send ETH</button>
+      {ethHash && <div>Transaction Hash: {ethHash}</div>}
+    </form>
+  );
+}
+
+export function ApproveToken() {
+  const [selectedToken, setSelectedToken] = React.useState("ETH");
+
+  return (
     <div>
-      <select onChange={(e) => setSelectedToken(e.target.value)}>
-        <option value="ETH">ETH</option>
-        <option value="USDT">USDT</option>
-      </select>
-      
-      {selectedToken === "ETH" ? (
-        <form onSubmit={handleETHSubmit}>
-          <input name="amount" placeholder="0.1" required type="text" />
-          <button type="submit">Send ETH</button>
-          {ethHash && <div>Transaction Hash: {ethHash}</div>}
-        </form>
-      ) : (
-        <form onSubmit={handleUSDTSubmit}>
-          <button type="submit">Approve USDT</button>
-          {usdtHash && <div>Transaction Hash: {usdtHash}</div>}
-        </form>
-      )}
+      <TokenDropdown setSelectedToken={setSelectedToken} />
+      {selectedToken === "ETH" ? <ApproveETH /> : <ApproveUSDT />}
     </div>
   );
 }
