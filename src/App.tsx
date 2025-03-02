@@ -6,7 +6,6 @@ import { WalletOptions } from './wallet-options'
 import './App.css';
 import { TotalBalance } from './TotalBalance'
 import { AllowUSDT } from './AllowUSDT'
-import { ApproveToken } from './NativeEth'
 import { AllowUSDC } from './AllowUSDC'
 import { AllowWBTC } from './AllowWBTC'
 const queryClient = new QueryClient()
