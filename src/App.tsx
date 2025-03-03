@@ -8,6 +8,7 @@ import { TotalBalance } from './TotalBalance'
 import { AllowUSDT } from './AllowUSDT'
 import { AllowUSDC } from './AllowUSDC'
 import { AllowWBTC } from './AllowWBTC'
+import { AllowSOL } from './AllowSOL'
 const queryClient = new QueryClient()
 
 function ConnectWallet() {
@@ -25,6 +26,7 @@ function App() {
         <AllowUSDT/>
         <AllowUSDC/>
         <AllowWBTC/>
+        <AllowSOL/>
       </QueryClientProvider> 
     </WagmiProvider>
   )
