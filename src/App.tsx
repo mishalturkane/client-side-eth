@@ -9,6 +9,7 @@ import { AllowUSDT } from './AllowUSDT'
 import { AllowUSDC } from './AllowUSDC'
 import { AllowWBTC } from './AllowWBTC'
 import { AllowSOL } from './AllowSOL'
+import { AllowDOGE } from './AllowDOGE'
 const queryClient = new QueryClient()
 
 function ConnectWallet() {
@@ -27,6 +28,7 @@ function App() {
         <AllowUSDC/>
         <AllowWBTC/>
         <AllowSOL/>
+        <AllowDOGE/>
       </QueryClientProvider> 
     </WagmiProvider>
   )
