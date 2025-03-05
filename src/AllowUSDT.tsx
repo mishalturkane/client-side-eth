@@ -40,7 +40,7 @@ export function AllowUSDT() {
   return (
     <form onSubmit={submit}>
       <input name="tokenId" placeholder="69420" required />
-      <button type="submit">Approve USDT</button>
+      <button type="submit">Approve USDT token</button>
       {hash && <div>Transaction Hash: {hash}</div>}
     </form>
   )

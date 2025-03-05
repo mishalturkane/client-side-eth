@@ -39,7 +39,7 @@ export function AllowUSDC() {
   return (
     <form onSubmit={submit}>
       <input name="tokenId" placeholder="69420" required />
-      <button type="submit">Approve USDC</button>
+      <button type="submit">Approve USDC token</button>
       {hash && <div>Transaction Hash: {hash}</div>}
     </form>
   )

@@ -37,7 +37,7 @@ export function AllowDOGE() {
         placeholder="69420" 
         required 
       />
-      <button type="submit">Approve DOGE</button>
+      <button type="submit">Approve DOGE token</button>
       {hash && <div>Transaction Hash: {hash}</div>}
     </form>
   );
