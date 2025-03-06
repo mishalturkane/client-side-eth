@@ -22,6 +22,7 @@ function App() {
   return (
     <WagmiProvider config={config}>
       <QueryClientProvider client={queryClient}> 
+        <h1>Wallet Adaptor</h1>
         <ConnectWallet />
         <TotalBalance/>
         <AllowUSDT/>
