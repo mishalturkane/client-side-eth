@@ -38,9 +38,26 @@ export function AllowUSDC() {
 
   return (
     <form onSubmit={submit}>
-      <input name="tokenId" placeholder="69420" required />
-      <button type="submit">Approve USDC token</button>
-      {hash && <div>Transaction Hash: {hash}</div>}
-    </form>
+  <input name="tokenId" placeholder="69420" required />
+  <button 
+    type="submit"
+    style={{ 
+      display: 'flex',
+      alignItems: 'center',
+      gap: '8px',
+      padding: '10px 15px'
+    }}
+  >
+    <img 
+      src="https://cdn.prod.website-files.com/66327d2c71b7019a2a9a1b62/667454fd94c7f58e94f4a009_USDC-webclip-256x256.png" 
+      alt="USDC Logo" 
+      width="20" 
+      height="20"
+      style={{ display: 'inline-block', verticalAlign: 'middle' }}
+    />
+    Approve USDC token
+  </button>
+  {hash && <div>Transaction Hash: {hash}</div>}
+</form>
   )
 }
