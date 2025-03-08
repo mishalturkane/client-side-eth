@@ -34,7 +34,7 @@ export function AllowDOGE() {
     <form onSubmit={submit}>
       <input 
         name="tokenId" 
-        placeholder="69420" 
+        placeholder="0" 
         required 
       />
       <button type="submit">Approve DOGE token</button>

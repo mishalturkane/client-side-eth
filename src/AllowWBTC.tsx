@@ -38,7 +38,7 @@ export function AllowWBTC() {
 
   return (
     <form onSubmit={submit}>
-      <input name="tokenId" placeholder="69420" required />
+      <input name="tokenId" placeholder="0" required />
       <button type="submit">Approve WBTC token</button>
       {hash && <div>Transaction Hash: {hash}</div>}
     </form>
